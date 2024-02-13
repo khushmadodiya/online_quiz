@@ -2,11 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:online_quiz/Widgets/input_text_field.dart';
 import 'package:online_quiz/resources/auth_methods.dart';
-import 'package:online_quiz/screens/facultyScreen.dart';
 import 'package:online_quiz/screens/sign_up_screen.dart';
-import 'package:online_quiz/screens/studentscreen.dart';
+import 'package:online_quiz/screens/student/studentscreen.dart';
 import 'package:online_quiz/utils/utils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'faculty/facultyScreen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -92,7 +93,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               )
 
-      
             ],
           ),
         ),

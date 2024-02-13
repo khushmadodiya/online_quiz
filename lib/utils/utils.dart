@@ -11,8 +11,6 @@ final option2 = 'option2';
 final option3 = 'option3';
 final option4= 'option4';
 final webScreenSize = 600;
-
-
 final useruid = FirebaseAuth.instance.currentUser!.uid;
 pickImage(ImageSource source) async {
   final ImagePicker imagePicker = ImagePicker();

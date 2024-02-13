@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:online_quiz/resources/firestore_methso.dart';
-import 'package:online_quiz/screens/facultyScreen.dart';
-import 'package:online_quiz/utils/utils.dart';
 
-import '../Widgets/input_text_field.dart';
+import '../../Widgets/input_text_field.dart';
+import '../../utils/utils.dart';
+import 'facultyScreen.dart';
 
 class CreateQuiz extends StatefulWidget {
   const CreateQuiz({super.key});

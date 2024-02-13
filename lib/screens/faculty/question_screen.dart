@@ -2,8 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:online_quiz/Widgets/question_card.dart';
-
-import '../utils/utils.dart';
+import '../../utils/utils.dart';
 import 'add_questions.dart';
 
 class QuestionScreen extends StatefulWidget {
@@ -19,7 +18,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text(widget.snap['quiztitle']),
+          title: Text(widget.snap['quiztitle'].toString()),
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(2.0), // Adjust the height as needed
             child: Divider(
@@ -29,7 +28,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
           )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(
+          Navigator.pushReplacement(
               context,
               MaterialPageRoute(
                   builder: (context) => AddQuestion(
@@ -40,10 +39,8 @@ class _QuestionScreenState extends State<QuestionScreen> {
       ),
       body: StreamBuilder(
           stream: FirebaseFirestore.instance
-              .collection('faculty')
-              .doc(useruid)
               .collection('quiz')
-              .doc(widget.snap['quizuid'])
+              .doc(widget.snap['quizuid'].toString())
               .collection('questions')
               .snapshots(),
           builder: (context, snapshot) {
@@ -60,6 +57,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                 return QuestionCard(
                   snap: snapshot.data!.docs[index].data(),
                   index: index+1,
+                  quizuid:widget.snap['quizuid'].toString()
                 );
               },
             );

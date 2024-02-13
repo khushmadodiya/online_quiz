@@ -5,12 +5,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:online_quiz/resources/auth_methods.dart';
-import 'package:online_quiz/screens/facultyScreen.dart';
 import 'package:online_quiz/screens/login_screen.dart';
-import 'package:online_quiz/screens/studentscreen.dart';
+import 'package:online_quiz/screens/student/studentscreen.dart';
 import 'package:online_quiz/utils/utils.dart';
 
 import '../Widgets/input_text_field.dart';
+import 'faculty/facultyScreen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -36,12 +36,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
   submit()async{
    String res= await AuthMethod().signup(email: emailcontroller.text.trim(), password: passcontroller.text.trim(), name: namecontroller.text.trim(), file: _image!, usertype: selectedValue);
    shosnacbar(context, res);
-   if(res=='success' && modelcontroller.text==value1){
-     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>StudentScreen()));
+   if(res=='success'){
+     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
    }
-   else if(res=='success' && modelcontroller.text==value2){
-     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>FacultyScreen()));
-   }
+
 
   }
 
