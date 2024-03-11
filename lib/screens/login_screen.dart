@@ -32,11 +32,12 @@ class _LoginScreenState extends State<LoginScreen> {
        print(selectedValue);
      }
      if(selectedValue == value1 && res =='success'){
-       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>StudentScreen()));
 
+Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>const StudentScreen()), (route) => false);
      }
      else if(selectedValue == value2 && res =='success'){
-       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>FacultyScreen()));
+       Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>const FacultyScreen()), (route) => false);
+
      }
      shosnacbar(context, res);
    }

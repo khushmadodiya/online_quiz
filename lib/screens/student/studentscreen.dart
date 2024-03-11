@@ -1,12 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:online_quiz/Widgets/facultycard.dart';
 import 'package:online_quiz/Widgets/student_card.dart';
 import 'package:online_quiz/resources/auth_methods.dart';
-import 'package:online_quiz/utils/utils.dart';
+import 'package:online_quiz/screens/login_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../main.dart';
@@ -98,8 +96,7 @@ class _StudentScreenState extends State<StudentScreen> {
                                       actions: [
                                         TextButton(
                                             onPressed: () async {
-                                              Navigator.pop(context);
-                                              Navigator.pop(context);
+                                              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>LoginScreen()), (route) => false);
                                             },
                                             child: Text('No')),
                                         TextButton(

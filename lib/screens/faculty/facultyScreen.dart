@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:online_quiz/Widgets/facultycard.dart';
 import 'package:online_quiz/resources/auth_methods.dart';
+import 'package:online_quiz/screens/login_screen.dart';
 import 'package:online_quiz/utils/utils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -91,8 +92,7 @@ class _FacultyScreenState extends State<FacultyScreen> {
                                           actions: [
                                             TextButton(
                                                 onPressed: () async {
-                                                  Navigator.pop(context);
-                                                  Navigator.pop(context);
+                                                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>LoginScreen()), (route) => false);
                                                 },
                                                 child: Text('No')),
                                             TextButton(
