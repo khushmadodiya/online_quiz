@@ -13,7 +13,7 @@ class FireStoreMethos {
 
     String res = 'some error occure';
    try{
-     var quizuid = Uuid().v1();
+     var quizuid = Uuid().v1().substring(0,4);
      await _firestore.collection('quiz').doc(quizuid).set({
        'facultyuid': FirebaseAuth.instance.currentUser!.uid,
        'quizuid': quizuid,
@@ -56,7 +56,7 @@ class FireStoreMethos {
       required String option4,
       required String rightans,
       required String quid}) async {
-    var uid = Uuid().v1();
+    var uid = Uuid().v1().substring(0,4);
     String res = 'some error occure';
    try{
      await _firestore

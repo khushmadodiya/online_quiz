@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:online_quiz/firebase_options.dart';
+import 'package:online_quiz/screens/HomeScreen.dart';
 import 'package:online_quiz/screens/faculty/facultyScreen.dart';
 import 'package:online_quiz/screens/login_screen.dart';
 import 'package:online_quiz/screens/sign_up_screen.dart';
@@ -57,7 +58,7 @@ class _MyAppState extends State<MyApp> {
               child: CircularProgressIndicator(),
             );
           }
-          return LoginScreen();
+          return HomeScreen();
     },
       ),
     );

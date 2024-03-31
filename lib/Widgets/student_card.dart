@@ -1,10 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:online_quiz/resources/firestore_methso.dart';
 import 'package:flutter/services.dart';
-
 import '../screens/faculty/question_screen.dart';
 import '../screens/student/quiz_screen.dart';
 import '../utils/utils.dart';
