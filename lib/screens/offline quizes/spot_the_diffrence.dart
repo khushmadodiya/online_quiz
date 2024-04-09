@@ -1,5 +1,12 @@
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:keyboard_hider/keyboard_hider.dart';
+import 'package:online_quiz/Widgets/card_widget.dart';
 import 'package:online_quiz/globle.dart';
+import 'package:online_quiz/resources/firestore_methso.dart';
+import 'package:online_quiz/screens/HomeScreen.dart';
 
 class Spot extends StatefulWidget {
   const Spot({super.key});
@@ -9,28 +16,27 @@ class Spot extends StatefulWidget {
 }
 
 class _SpotState extends State<Spot> {
+
+
+  void sendans(ans,int index)async{
+
+    hideTextInput();
+    var res =await FireStoreMethos().setAns(ans,index.toString(),'Spot');
+    print(res);
+    if(res=='s'){
+      Fluttertoast.showToast(msg: 'succses');
+    }
+
+  }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Spot the diffrence'),
-      ),
-      body:Container(
-        child: ListView.builder(itemBuilder: (context,index){
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: Container(
-              height: 200,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20)
-              ),
-              child: Image.asset('assets/spot/${spot[index]}'),
-            ),
-          );
-        },
-          itemCount: spot.length,
-        ),
+    return  Scaffold(
+      body:ListView.builder(itemBuilder: (context,index){
+        final TextEditingController anscontroller=TextEditingController();
+        return CardWid(index: index,isspot:true);
+
+      },
+        itemCount: spot.length,
       ),
     );
   }

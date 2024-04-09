@@ -34,8 +34,16 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        colorScheme: ColorScheme.dark(),
+        inputDecorationTheme: InputDecorationTheme(
+          border: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.white), // Set your global border color here
+          ),
+          hintStyle: TextStyle(
+            color: Colors.white
+          )
+        ),
+
       ),
       home:  StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),

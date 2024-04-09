@@ -64,11 +64,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         radius: 64,
                         backgroundImage: MemoryImage(_image!),
                       )
-                    : CircleAvatar(
-                        radius: 64,
-                        backgroundImage: NetworkImage(
-                            'https://cdn-icons-png.flaticon.com/128/3106/3106921.png'),
-                      ),
+                    : Icon(Icons.person,size: 130,),
                 Positioned(
                   child: IconButton(
                     onPressed: selectImage,
@@ -84,29 +80,35 @@ class _SignUpScreenState extends State<SignUpScreen> {
               SizedBox(
                 height: 20,
               ),
-              DropdownButton<String>(
-                borderRadius: BorderRadius.circular(10),
-                icon: Icon(Icons.person),
-                iconEnabledColor: Colors.deepPurple,
-                value: selectedValue,
-                onChanged: (String? newValue) {
-                  setState(() {
-                    selectedValue = newValue!;
-                    modelcontroller.text = selectedValue;
-                  });
-                },
-                items: <String>[
-                  value1,
-                  value2,
-                ].map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                      value: value, child: Text(value));
-                }).toList(),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(width: 1.3)
+                ),
+                child: DropdownButton<String>(
+                  borderRadius: BorderRadius.circular(10),
+                  icon: Icon(Icons.person),
+                  iconEnabledColor: Colors.deepPurple,
+                  value: selectedValue,
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      selectedValue = newValue!;
+                      modelcontroller.text = selectedValue;
+                    });
+                  },
+                  items: <String>[
+                    value1,
+                    value2,
+                  ].map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                        value: value, child: Text(value,style: TextStyle(fontSize: 25),));
+                  }).toList(),
+                ),
               ),
               SizedBox(
                 height: 20,
               ),
-              InputText(controller: namecontroller, hint: "Enter your Name"),
+              InputText(controller: namecontroller, hint: "Enter your Name",),
               SizedBox(
                 height: 15,
               ),

@@ -2,7 +2,7 @@ List animals = [
   'Avengers.gif',
   'bahubali.gif',
   'camel.gif',
-  ' captain america.gif',
+  'captain america.gif',
   'cats.gif',
   'dogs.gif',
   'fishes.jpeg',
@@ -25,11 +25,11 @@ List spot =[
   'sidiff2.gif',
   'stdiff1.gif',
   'stdiff3.jpeg',
-  'stdiff4.gif',
   'stdiff5.jpg',
   'stdiff6.jpg',
   'stdiff7.jpg',
   'stdiff8.webp',
+  'stdiff10.jpg',
+  'stdiff4.gif',
   'stdiff9.jpg',
-  'stdiff10.jpg'
 ];

@@ -10,15 +10,12 @@ class InputText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final inputBorder = OutlineInputBorder();
     return TextField(
       maxLines: isform ? 1:null,
       controller: controller,
       decoration: InputDecoration(
         hintText: hint,
-        border: inputBorder,
-        focusedBorder: inputBorder,
-        enabledBorder: inputBorder,
+        border: OutlineInputBorder(borderSide: BorderSide(color: Colors.white70)),
         filled: true,
         contentPadding: const EdgeInsets.all(8),
       ),

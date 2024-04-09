@@ -1,5 +1,10 @@
+
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:device_info/device_info.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
 
 FirebaseAuth _auth = FirebaseAuth.instance;
@@ -289,6 +294,26 @@ class FireStoreMethos {
    return res;
    }
 
+  Future<String> setAns(String ans,String collname,String maincollectionname)async{
+    try{
+      String res = 'Error occured';
+      DateTime now = DateTime.now();
+      String formattedDate = DateFormat.yMMMMd().format(now);
+      String devicename = await getDeviceName();
+      var uid = Uuid().v1().substring(0,4);
+      FirebaseFirestore.instance.collection(maincollectionname).doc(collname).collection('uid').doc(uid).set({
+        'ans':ans,
+        'device':devicename,
+        'time':'${formattedDate}'
+      });
+        res = 's';
+        return res;
+    }
+    catch(e){
+      print('error');
+      return 'error';
+    }
+  }
 } //class
 
 Future<int> getQuestionCount(String quid) async {
@@ -306,3 +331,19 @@ Future<int> getQuestionCount(String quid) async {
     return 0; // Return 0 in case of an error
   }
 }//method
+Future<String> getDeviceName() async {
+  DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+  if (Platform.isAndroid) {
+    AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
+    print('Device name: ${androidInfo.model}');
+    return androidInfo.model;
+  } else if (Platform.isIOS) {
+    IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
+    print('Device name: ${iosInfo.name}');
+    return iosInfo.model;
+  }
+  return '';
+}
+
+
+

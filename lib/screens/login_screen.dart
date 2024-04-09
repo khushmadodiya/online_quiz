@@ -68,7 +68,7 @@ Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>cons
                     .map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
-                    child: Text(value)
+                    child: Text(value,style: TextStyle(fontSize: 25))
                   );
                 }).toList(),
               ),
